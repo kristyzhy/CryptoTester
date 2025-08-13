@@ -9,6 +9,19 @@
 - Unable to use/import RSA private keys where P and Q are not the same bit length (e.g. RSA-512 with 256-bit P and 257-bit Q) - limitation with Microsoft CSP
 - When using a Derive function with the Sosemanuk algorithm, it will always output a 16-byte key
 
+## [1.7.3.0]
+
+### Added
+- CRC32C hash algorithm
+- Key Finder can now find SM2 public and private keys as ASN.1, or ASN.1 strings
+- SM2 (IES) and SM4 encryption algorithms
+- SM3 hash algorithm
+- ECC Validator can work with the SM2 curve parameters (import as ECPoint or ASN.1, and generate new keys)
+
+### Fixed
+- Blind Decrypt with RSA would always fail
+- Potentially fixed text cutoff in the Nonce field on certain languages
+
 ## [1.7.2.0]
 
 ### Added
@@ -29,7 +42,6 @@
 - Keystream Finder tool
 
 ### Fixed
-
 - Bruteforce Keys will now skip empty lines in a file
 - RSA (Raw) implementation when processing input with leading 0x00 bytes
 - Legacy PKCS#8 (ASN.1 or PEM) RSA keys with the missing `parameters` field can now be imported
